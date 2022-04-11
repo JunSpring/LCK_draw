@@ -23,5 +23,8 @@
     <ClInclude Include="read_csv.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="load_csv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,11 +1,13 @@
-﻿#include<stdio.h>
+#ifndef LOAD_CSV_H
+#define LOAD_SCV_H
+
+#pragma warning(disable:4996)
+
+#include<iostream>
 #include<stdlib.h>
 #include<string.h>
 
-//#include "load_csv.h"
-#include "read_csv.h"
-
-#pragma warning(disable:4996)
+#include"read_csv.h"
 
 int main()
 {
@@ -19,10 +21,12 @@ int main()
         struct data d;
 
         char* tmp = strdup(line);
-        getfield(tmp, &d, 4);
+        getfield(tmp, &d, MAX_DATA);
 
-        printf("[%s]\t [%s]\t [%s]\t [%s]\n", d.s[0], d.s[1], d.s[2], d.s[3]);
+        printf("%s %s %s %s\n", d.s[0], d.s[1], d.s[2], d.s[3]);
 
         free(tmp);
     }
 }
+
+#endif // !LOAD_CSV_H
