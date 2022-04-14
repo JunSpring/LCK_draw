@@ -10,7 +10,7 @@
 #include "read_csv.h"
 #include "season_struct.h"
 
-void load_data(Data* data, char path[], int size)
+void load_data(Data* data, char path[], int column_size) // Data구조체의 포인터, csv파일경로, 행길이를 매개변수로 받음
 {
 	char line[1024];
 
@@ -19,20 +19,16 @@ void load_data(Data* data, char path[], int size)
 	{
 		remove_spaces(line);
 
-		Data d;
+		char* temp = strdup(line);
+		getfield(temp, data, column_size);
 
-		char* tmp = strdup(line);
-		getfield(tmp, data, size);
-
-		for (int i = 0; i < size; i++)
+		/*for (int i = 0; i < size; i++) // csv파일을 불러옴과 동시에 출력
 		{
 			printf("%s\t", data->s[i]);
 		}
-		printf("\n");
-
-		free(tmp);
+		printf("\n");*/
 	}
-	printf("\n");
+	/*printf("\n");*/
 }
 
 #endif // !LOAD_CSV_H
